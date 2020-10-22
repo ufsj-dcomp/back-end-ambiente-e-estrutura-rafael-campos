@@ -1,0 +1,154 @@
+swagger: "2.0"
+info:
+  description: "app jogador Web feito para discilpina de tec web da ufsj"
+  version: "1.0.0"
+  title: "Jogador Web"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "rhcsjdr@outlook.com"
+  
+host: "jogadorweb.ccomp.ufsj.edu.br"
+basePath: "/v1"
+tags:
+- name: "Jogador"
+  description: "Adicionar jogadores"
+  externalDocs:
+    description: "Find out more"
+    url: "http://swagger.io"
+- name: "Tabela"
+  description: "Ver a tabela geral dos jogadores"
+- name: "Usuario"
+  description: "Gerenciamento de usuarios"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+paths:
+  /player:
+    post:
+      tags:
+      - "jogador"
+      summary: "Adicionar um jogador na tabela"
+      
+      operationId: "addPlayer"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Jogador a ser adicionado"
+        required: true
+        schema:
+          $ref: "#/definitions/Player"
+      responses:
+        200:
+          description: OK
+          schema:
+           $ref: "#/definitions/Player"
+  /player/{playerID} 
+    get:
+      tags:
+      - "jogador"
+      summary: "buscar jogador por ID"
+      operationId: "getPlayerByID"
+      produces:
+      - "application/json"
+      parameters:
+        name: "playerId" 
+        in: "path"
+        description: "ID do jogador retornada"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: OK
+          schema:
+           $ref: "#/definitions/Player"
+        400:
+           description: "ID de jogador invalido"
+        404:
+           description: "Jogador não encontrado"
+           
+      put:
+      tags:
+      - "jogador"
+      summary: "Atualizar dados de um jogador"
+      operationId: "putPlayerByID"
+      produces:
+      - "application/json"
+      consumes:
+      - "application/json"
+      parameters:
+        name: "playerId" 
+        in: "path"
+        description: "ID do jogador retornada"
+        required: true
+        in: "body"
+        name: "body"
+        type: "integer"
+        format: "int64"
+        description: "Atualizar dados do jogador"
+        schema:
+           $ref: "#/definitions/Player"
+      responses:
+        200:
+          description: "operação foi um sucesso"
+          schema:
+           $ref: "#/definitions/Player"
+        400:
+           description: "ID de jogador invalido"
+        404:
+           description: "Jogador não encontrado"
+           
+           
+    delete:
+      tags:
+      - "jogador"
+      summary: "Apagar um jogador"
+      operationId: "deletePlayerByID"
+      produces:
+      - "application/json"
+      consumes:
+      - "application/json"
+      parameters:
+        name: "playerId" 
+        in: "path"
+        description: "Deletar jogador"
+        required: true
+        in: "body"
+        name: "body"
+        type: "integer"
+        format: "int64
+      responses:
+        200:
+          description: "operação foi um sucesso"
+          schema:
+           $ref: "#/definitions/Player"
+        400:
+           description: "ID de jogador invalido"
+        404:
+           description: "Jogador não encontrado"
+ Definitions:
+    Player:
+      type: "objetct"
+    properties:
+      id: 
+        type: "integer"
+        format: "int64"
+        
+      nome:
+        type: "string"
+      time:
+        type: "string"
+      status:
+        type: "string"
+        enum:
+            - "disponivel"
+            - "indisponivel"
+    
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
