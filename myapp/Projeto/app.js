@@ -72,22 +72,60 @@ app.delete('/jogador/:playerId', (req, resp) => {
 
 app.post('/user', (req, resp) => {
     var user = req.body;
-    console.log(user);    
+    console.log("POST - user ");   
+    
+    conection.query("INSERT INTO user = ?", [user], (err,result) => {
+        if (err) {
+            console.log(err);
+            resp.status(500).end();
+        }else {
+            resp.status(200);
+            resp.json(result);
+        }        
+    });     
 })
 
 app.get('/user/:userId', (req, resp) => {
-    var playerId = req.params.userId;
-    console.log("GET UserId: " + playerId);    
+    var userId = req.params.userId;
+    console.log("GET - userId: " + userId);
+
+    conection.query("SELECT * FROM user WHERE id = ?", [userId], (err,result) => {
+        if (err) {
+            console.log(err);
+            resp.status(500).end();
+        }else {
+            resp.status(200);
+            resp.json(result);
+        }        
+    });    
 })
 
 app.put('/user/:userId', (req, resp) => {
-    var playerId = req.params.userId;
-    console.log("PUT UserId: " + userId);    
+    var userId = req.params.userId;
+    console.log("PUT - userId: " + userId);
+
+    conection.query("UPDATE * FROM user WHERE id = ?", [user,userId] , (err,result) => {
+        if (err) {
+            console.log(err);
+            resp.status(500).end();
+        }else {
+            resp.status(200);            
+        }        
+    });    
 })
 
 app.delete('/user/:userId', (req, resp) => {
-    var playerId = req.params.playerId;
-    console.log("DELETE UserId: " + userId);    
+    var userId = req.params.userId;
+    console.log("DELETE UserId: " + userId);   
+    
+    conection.query("DELETE * FROM user WHERE id = ?", [userId], (err,result) => {
+        if (err) {
+            console.log(err);
+            resp.status(500).end();
+        }else {
+            resp.status(200);            
+        }        
+    }); 
 })
 
 app.listen(3000, () => {
