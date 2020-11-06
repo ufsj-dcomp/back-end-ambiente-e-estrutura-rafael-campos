@@ -1,133 +1,35 @@
-var express = require("express");
-var app     = express();
+const express = require('express');
+const fileUpload = require('express-fileupload');
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+const path = require('path');
+const app = express();
 
-var mysql = require("mysql");
-var conection = mysql.createConnection({
-    host: "localhost",
-    user: 'tecweb',
-    password: "tecweb",
-    database: "tecJogadorweb"
+const port = 5000;
+
+const db = mysql.createConnection ({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'jogadorweb'
 });
 
-app.use(express.json());
-
-app.post('/jogador', (req, resp) => {
-    var player = req.body;
-    console.log("POST - Jogador ");   
-    
-    conection.query("INSERT INTO jogador = ?", [jogador], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);
-            resp.json(result);
-        }        
-    }); 
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
 });
+global.db = db;
 
-app.get('/jogador/:playerId', (req, resp) => {
-    var playerId = req.params.playerId;
-    console.log("GET - playerId: " + playerId);
+app.set('port', process.env.port || port); 
+app.set('views', __dirname + '/views'); 
+app.set('view engine', 'ejs'); 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json()); 
+app.use(express.static(path.join(__dirname, 'public'))); 
+app.use(fileUpload()); 
 
-    conection.query("SELECT * FROM jogador WHERE id = ?", [playerId], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);
-            resp.json(result);
-        }        
-    }); 
-});
-
-app.put('/jogador/:playerId', (req, resp) => {
-    var playerId = req.params.playerId;
-    console.log("PUT - playerId: " + playerId);
-
-    conection.query("UPDATE * FROM jogador WHERE id = ?", [jogador,playerId] , (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);            
-        }        
-    });    
-});
-
-app.delete('/jogador/:playerId', (req, resp) => {
-    var playerId = req.params.playerId;
-    console.log("DELETE - PlayerId: " + playerId);  
-    
-    conection.query("DELETE * FROM jogador WHERE id = ?", [playerId], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);            
-        }        
-    }); 
-});
-
-
-app.post('/user', (req, resp) => {
-    var user = req.body;
-    console.log("POST - user ");   
-    
-    conection.query("INSERT INTO user = ?", [user], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);
-            resp.json(result);
-        }        
-    });     
-})
-
-app.get('/user/:userId', (req, resp) => {
-    var userId = req.params.userId;
-    console.log("GET - userId: " + userId);
-
-    conection.query("SELECT * FROM user WHERE id = ?", [userId], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);
-            resp.json(result);
-        }        
-    });    
-})
-
-app.put('/user/:userId', (req, resp) => {
-    var userId = req.params.userId;
-    console.log("PUT - userId: " + userId);
-
-    conection.query("UPDATE * FROM user WHERE id = ?", [user,userId] , (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);            
-        }        
-    });    
-})
-
-app.delete('/user/:userId', (req, resp) => {
-    var userId = req.params.userId;
-    console.log("DELETE UserId: " + userId);   
-    
-    conection.query("DELETE * FROM user WHERE id = ?", [userId], (err,result) => {
-        if (err) {
-            console.log(err);
-            resp.status(500).end();
-        }else {
-            resp.status(200);            
-        }        
-    }); 
-})
-
-app.listen(3000, () => {
-  console.log('Jogador web - port 3000!');
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
 });
