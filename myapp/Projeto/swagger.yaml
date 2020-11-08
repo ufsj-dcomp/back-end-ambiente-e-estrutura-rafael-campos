@@ -16,8 +16,6 @@ tags:
 - name: "jogadores"
   description: "adicionar jogadores"
 
-- name: "usuarios"
-  description: "Operations about user"
   externalDocs:
     description: "Find out more about our store"
     url: "http://swagger.io"
@@ -122,108 +120,6 @@ paths:
           description: "Not Acess ID Invalido" 
         404:
           description: "Not Fund"
-          
-
-  
-  /usuario:
-    post:
-      tags:
-       - "usuarios"
-      summary: "Adcionar um novo usuario"
-      operationId: "addUser"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Objeto de usuario a ser adcionado no sistema"
-        required: true
-        schema:
-          $ref: '#/definitions/User'
-      responses:
-        200:
-          description: OK
-          schema:
-            $ref: '#/definitions/User'
-  
-  /usuario/{userId}:
-    get:
-      tags:
-      - "usuarios"
-      summary: "Retornar Usuario pelo ID"
-      operationId: "getUserById"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "ID of user to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        200:
-          description: "Sucesso"
-          schema:
-            $ref: "#/definitions/User"
-        400:
-          description: "Not Fund ID Invalido"
-        404:
-          description: "Not Acess"
-    put:
-      tags:
-      - "usuarios"
-      summary: "Atualizar dados do Usuario"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "ID that need to be updated"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "body"
-        in: "body"
-        description: "Updated jogador object "
-        schema:
-          $ref: '#/definitions/User'
-      responses:
-        200:
-          description: "Sucesso"
-          schema:
-            $ref: '#/definitions/User'
-        400:
-          description: "Not Acess" 
-        404:
-          description: "Not Fund ID Invalido"
-    delete:
-      tags:
-      - "usuarios"
-      summary: "Remover um Usuario"
-      operationId: "DelSUserId"
-      produces:
-        - "application/json"
-      parameters:
-      - name: "userId"
-        in: "path"
-        description: "User ID to delete" 
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        200:
-          description: "Successful Operation"
-          schema:
-            $ref: '#/definitions/User'
-        400:
-          description: "Not Acess ID Invalido" 
-        404:
-          description: "Not Fund"
 
 definitions:
   Player:
@@ -234,35 +130,19 @@ definitions:
         format: "int64"
       nome:
         type: "string"
+      sobrenome:
+        type: "string"
       time:
+        type: "string"  
+      posicao:
         type: "string"
       idade:
         type: "integer"
-        format: "int64"
-      cartoes amarelos:
-        type: "integer" 
-        format: "int64"
-      cartoes vermelhos:
-        type: "integer"   
-        format: "int64"
-      status:
-        type: "string"
-        enum: 
-          - "disponivel"
-          - "indisponivel"
+        format: "int64"  
+      
       
 
-  User:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      nome:
-        type: "string"
-      cpf:
-        type: "integer"
-        format: "int64"
+ 
  
      
 
