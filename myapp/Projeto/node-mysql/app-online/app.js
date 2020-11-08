@@ -11,6 +11,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.use(
+  connection(mysql,{
+    host: 'localhost',
+    user: 'rafael',
+    password : 'rh181908',
+    port : 3306,
+    database:'debanco_dados'
+  },'request')
+);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
