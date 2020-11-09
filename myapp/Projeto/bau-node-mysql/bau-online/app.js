@@ -1,3 +1,4 @@
+require('getmodule');
 var mysql = require('mysql');
 var connection = require('express-myconnection');
 var createError = require('http-errors');
