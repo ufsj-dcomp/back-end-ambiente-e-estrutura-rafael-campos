@@ -1,15 +1,14 @@
- var express = require('express');
- var App = express.Router();
- var Jogadores = getmodule('api/jogadores');
+var express = require('express');
+var App = express.Router();
+var Jogadores = getmodule('api/jogadores');
 
- /* GET home page. */
- App.route('/jogadores')
-     .get(jogadores.list)
-    .post(jogadores.create);
+App.route('/jogadores')
+	.get(Jogadores.list)
+	.post(Jogadores.create);
 
- App.route('/jogadores/:id')
-     .get(jogadores.getById)
-     .put(jogadores.update)
-     .delete(jogadores.delete);
+App.route('/jogadores/:id')
+	.get(Jogadores.getById)
+	.put(Jogadores.update)
+	.delete(Jogadores.delete);
 
 module.exports = App;
