@@ -1,0 +1,43 @@
+<div class="masthead">
+    <div container>
+        <div class="row">
+            <h2>Atualizar música</h2>
+        </div>
+        <div class="row">
+            <form class="form-horizontal" ng-submit="atualizar(item)">
+                <fieldset>
+                    <p>
+                        <label for="name">Nome:</label>
+                        <input type="text" ng-model="item.titulo" class="form-control" placeholder="Nome" />
+                        <input type="hidden" ng-model="item.id">
+                    </p>
+					
+					<p>
+                        <label for="name">Sobrenome:</label>
+                        <input type="text" ng-model="item.album" class="form-control" placeholder="Sobrenome" />
+                    </p>
+					
+					<p>
+                        <label for="name">Time:</label>
+                        <input type="text" ng-model="item.cantor" class="form-control" placeholder="Time" />
+                    </p>
+
+                    <p>
+                        <label for="name">Posição:</label>
+                        <input type="text" ng-model="item.cantor" class="form-control" placeholder="Posição" />
+                    </p>
+					
+					<p>
+                        <label for="name">Idade:</label>
+                        <input type="number" ng-model="item.ano" class="form-control" placeholder="Idade" maxlength="4"/>
+                    </p>
+                </fieldset>
+
+                <div class="form-group">
+                    <button class="btn btn-success">Atualizar</button>
+                    <a href="#/jogadores/list/all" class="button button--bordered border--muted">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
