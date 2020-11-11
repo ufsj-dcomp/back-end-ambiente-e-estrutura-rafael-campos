@@ -47,17 +47,17 @@ handleMsgs = function($scope, $routeParams) {
 			case 'add-success':
 				$scope.showMsg = true;
 				$scope.msgClass = 'success';
-				$scope.msg = 'Jogador adicionada com sucesso!';
+				$scope.msg = 'Jogador adicionado com sucesso!';
 				break;
 			case 'edit-success':
 				$scope.showMsg = true;
 				$scope.msgClass = 'success';
-				$scope.msg = 'Jogador atualizada com sucesso!';
+				$scope.msg = 'Jogador atualizado com sucesso!';
 				break;
 			case 'delete-success':
 				$scope.showMsg = true;
 				$scope.msgClass = 'success';
-				$scope.msg = 'Jogador removida com sucesso!';
+				$scope.msg = 'Jogador removido com sucesso!';
 				break;
 		}
 	}
