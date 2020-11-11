@@ -1,8 +1,8 @@
 require('getmodule');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+// var favicon = require('serve-favicon');
+// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
@@ -23,17 +23,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(
-    connection(mysql,{
-        host: 'localhost',
-        user: 'root',
-        password : 'root',
-        port : 3306,
-        database:'tecweb_bau'
-    },'request')
-);
+
 
 app.use('/', routes);
+
 app.use('/users', users);
 
 app.use(function(req, res, next) {

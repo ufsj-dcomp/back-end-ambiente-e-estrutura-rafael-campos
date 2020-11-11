@@ -1,0 +1,21 @@
+codigo bd
+
+
+CREATE SCHEMA `tecweb_bau`;
+
+  USE `tecweb_bau`;
+
+  CREATE TABLE `tb_jogadores` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nome` varchar(200) NOT NULL,
+    `sobrenome` varchar(45) DEFAULT NULL,
+    `time` varchar(45) DEFAULT NULL,
+    `posicao` varchar(45) DEFAULT NULL,
+    `idade` int(4) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+INSERT INTO `tecweb_bau`.`tb_jogadores` (`nome`, `sobrenome`, `time`, `posicao`, `idade`)
+VALUES ('hazard', 'phill', 'flamengo', 'atacante', '26');
+INSERT INTO `tecweb_bau`.`tb_jogadores` (`nome`, `sobrenome`, `time`, `posicao`, `idade`)
+VALUES ('alex', 'sanchez', 'santos', 'atacante', '30');
