@@ -1,17 +1,17 @@
 'use strict';
 var dbConn = require('./../../config/db.config');
-//jogador object create
-var jogador = function(jogador){
-  this.nome           = jogador.nome;
+//Jogador object create
+var Jogador = function(jogador){
+  this.nome     = jogador.nome;
   this.sobrenome      = jogador.sobrenome;
-  this.time           = jogador.time;
-  this.posicao        = jogador.posicao;
-  this.idade          = jogador.idade;
+  this.time          = jogador.time;
+  this.posicao          = jogador.posicao;
+  this.idade   = jogador.idade;
   this.status         = jogador.status;
-
+  
 };
-jogador.create = function (newEmp, result) {
-dbConn.query("INSERT INTO jogador set ?", newEmp, function (err, res) {
+Jogador.create = function (newEmp, result) {
+dbConn.query("INSERT INTO jogadores set ?", newEmp, function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(err, null);
@@ -22,8 +22,8 @@ else{
 }
 });
 };
-jogador.findById = function (id, result) {
-dbConn.query("Select * from jogador where id = ? ", id, function (err, res) {
+Jogador.findById = function (id, result) {
+dbConn.query("Select * from jogadores where id = ? ", id, function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(err, null);
@@ -33,29 +33,30 @@ else{
 }
 });
 };
-jogador.findAll = function (result) {
-dbConn.query("Select * from jogador", function (err, res) {
+Jogador.findAll = function (result) {
+dbConn.query("Select * from jogadores", function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(null, err);
 }
 else{
-  console.log('jogador : ', res);
+  console.log('jogadores : ', res);
   result(null, res);
 }
 });
 };
-jogador.update = function(id, jogador, result){
-dbConn.query("UPDATE jogador SET nome=?,sobrenome=?,time=?,posicao=?,idade=?,status=? WHERE id = ?", [jogador.nome,jogador.sobrenome,jogador.time,jogador.posicao,jogador.idade,jogador.status, id], function (err, res) {
+Jogador.update = function(id, jogador, result){
+dbConn.query("UPDATE jogadores SET nome=?,sobrenome=?,time=?,posicao=?,idade=?,status=? WHERE id = ?", [jogador.nome,jogador.sobrenome,jogador.time,jogador.posicao,jogador.idade,jogador.status, id], function (err, res) {
 if(err) {
   console.log("error: ", err);
+  result(null, err);
 }else{
   result(null, res);
 }
 });
 };
-jogador.delete = function(id, result){
-dbConn.query("DELETE FROM jogador WHERE id = ?", [id], function (err, res) {
+Jogador.delete = function(id, result){
+dbConn.query("DELETE FROM jogadores WHERE id = ?", [id], function (err, res) {
 if(err) {
   console.log("error: ", err);
   result(null, err);
@@ -65,4 +66,4 @@ else{
 }
 });
 };
-module.exports= jogador;
+module.exports= Jogador;
