@@ -1,10 +1,10 @@
-import { JogadorWebPage } from './app.po';
+import { FrontEndPage } from './app.po';
 
-describe('jogador-web App', function() {
-  let page: JogadorWebPage;
+describe('front-end App', function() {
+  let page: FrontEndPage;
 
   beforeEach(() => {
-    page = new JogadorWebPage();
+    page = new FrontEndPage();
   });
 
   it('should display message saying app works', () => {

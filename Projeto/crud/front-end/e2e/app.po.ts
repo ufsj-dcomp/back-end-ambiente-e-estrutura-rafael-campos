@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class JogadorWebPage {
+export class FrontEndPage {
   navigateTo() {
     return browser.get('/');
   }
