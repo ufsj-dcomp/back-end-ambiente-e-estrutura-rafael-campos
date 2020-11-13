@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { JogadorComponent } from './jogador/jogador.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JogadorComponent
   ],
   imports: [
     BrowserModule,
