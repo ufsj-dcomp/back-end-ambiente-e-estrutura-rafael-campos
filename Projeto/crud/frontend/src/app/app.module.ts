@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { JogadorComponent } from './jogador/jogador.component';
 import { HttpClientModule} from '@angular/common/http';
+import { JogadorService } from  './jogador.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,9 @@ import { HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatTableModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [JogadorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
