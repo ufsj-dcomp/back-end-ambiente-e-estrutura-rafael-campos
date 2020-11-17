@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
+app.use(cors());
 // create express app
 const app = express();
 // Setup server port
@@ -15,7 +17,7 @@ app.get('/', (req, res) => {
 // Require jogador routes
 const jogadorRoutes = require('./src/routes/jogador.routes')
 // using as middleware
-app.use('/api/v1/jogadores', jogadorRoutes)
+app.use('/jogadores', jogadorRoutes)
 // listen for requests
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
