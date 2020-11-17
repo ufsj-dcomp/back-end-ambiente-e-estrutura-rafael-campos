@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { JogadorService } from '../jogador.service';
+
+export class Jogador{
+  id: number;
+  nome: string;
+  sobrenome: string;
+  time: string;
+  posicao: string;
+  idade: number;
+  status: string;
+}
 
 
 @Component({
@@ -8,9 +19,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JogadorComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status'];
+  dataSource = JOGADORES;
 
-  ngOnInit(): void {
+  constructor(private service: JogadorService) { }
+
+  ngOnInit() {
+    this.service.getJogador().subscribe(jogadores => this.dataSource = jogadores);
   }
 
 }
