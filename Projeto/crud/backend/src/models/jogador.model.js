@@ -2,14 +2,14 @@
 var dbConn = require('./../../config/db.config');
 //Jogador object create
 var Jogador = function(jogador){
-  this.nome     = jogador.nome;
+  this.nome           = jogador.nome;
   this.sobrenome      = jogador.sobrenome;
-  this.time          = jogador.time;
-  this.posicao          = jogador.posicao;
-  this.idade   = jogador.idade;
-  this.status         = jogador.status;
-  
+  this.time           = jogador.time;
+  this.posicao        = jogador.posicao;
+  this.idade          = jogador.idade;
+  this.status         = jogador.status;  
 };
+
 Jogador.create = function (newEmp, result) {
 dbConn.query("INSERT INTO jogadores set ?", newEmp, function (err, res) {
 if(err) {

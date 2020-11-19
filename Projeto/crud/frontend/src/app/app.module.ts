@@ -8,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { JogadorComponent } from './jogador/jogador.component';
+import { JogadorComponent, MngJogadorDialog } from './jogador/jogador.component';
 import { HttpClientModule} from '@angular/common/http';
 import { JogadorService } from  './jogador.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,8 @@ import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
-    JogadorComponent
+    JogadorComponent,
+    MngJogadorDialog
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,9 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule
+  ],
+  entryComponents:  [
+    MngJogadorDialog
   ],
   providers: [JogadorService],
   bootstrap: [AppComponent]
