@@ -18,7 +18,7 @@ if(err) {
 else{
   console.log(res.insertId);
   result(null, res.insertId);
-  resp.json(result.insertId);
+  
 }
 });
 };
@@ -66,4 +66,4 @@ else{
 }
 });
 };
-module.exports= Jogador;
+module.exports = Jogador;
