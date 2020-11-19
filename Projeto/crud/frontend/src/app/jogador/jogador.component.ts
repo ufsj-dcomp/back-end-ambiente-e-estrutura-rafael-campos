@@ -4,13 +4,13 @@ import { MatTableDataSource } from '@angular/material/table';
 import { JogadorService } from '../jogador.service';
 
 export class Jogador {
-  id: number;
-  nome?: string;
-  sobrenome?: string;
-  time?: string;
-  posicao?: string;
-  idade?: number;
-  status?: string;
+  id!: number;
+  nome!: string;
+  sobrenome!: string;
+  time!: string;
+  posicao!: string;
+  idade!: number;
+  status!: string;
 }
 
 @Component({
