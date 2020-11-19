@@ -5,12 +5,12 @@ import { JogadorService } from '../jogador.service';
 
 export class Jogador {
   id: number;
-  nome: string;
-  sobrenome: string;
-  time: string;
-  posicao: string;
-  idade: number;
-  status: string;
+  nome?: string;
+  sobrenome?: string;
+  time?: string;
+  posicao?: string;
+  idade?: number;
+  status?: string;
 }
 
 @Component({
