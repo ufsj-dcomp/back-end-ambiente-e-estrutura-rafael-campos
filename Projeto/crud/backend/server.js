@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-app.use(cors());
+
 // create express app
 const app = express();
 // Setup server port
