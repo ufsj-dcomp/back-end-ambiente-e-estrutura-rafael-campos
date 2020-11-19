@@ -9,7 +9,6 @@ var Jogador = function(jogador){
   this.idade          = jogador.idade;
   this.status         = jogador.status;  
 };
-
 Jogador.create = function (newEmp, result) {
 dbConn.query("INSERT INTO jogadores set ?", newEmp, function (err, res) {
 if(err) {
@@ -19,6 +18,7 @@ if(err) {
 else{
   console.log(res.insertId);
   result(null, res.insertId);
+  resp.json(result.insertId);
 }
 });
 };

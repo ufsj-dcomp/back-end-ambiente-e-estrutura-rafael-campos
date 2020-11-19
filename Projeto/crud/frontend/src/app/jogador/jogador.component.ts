@@ -20,7 +20,7 @@ export class Jogador {
 })
 export class JogadorComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status'];
+  displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status', 'acoes'];
   dataSource = new MatTableDataSource<Jogador>();
 
   constructor(private service: JogadorService, public dialog: MatDialog) { }
