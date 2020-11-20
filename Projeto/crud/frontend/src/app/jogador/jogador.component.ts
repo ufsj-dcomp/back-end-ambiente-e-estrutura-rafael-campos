@@ -36,7 +36,7 @@ export class JogadorComponent implements OnInit {
     });  
 
     dialogRef.afterClosed().subscribe(jogador =>{
-      console.log(Jogador);
+      console.log(jogador);
       this.service.adicionar(jogador).subscribe(jogadorId => {
         this.service.getJogador(jogadorId).subscribe(newJogador => {
           this.dataSource.data = this.dataSource.data.concat(newJogador);
