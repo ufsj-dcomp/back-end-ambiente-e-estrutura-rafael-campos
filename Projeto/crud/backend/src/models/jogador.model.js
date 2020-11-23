@@ -13,11 +13,11 @@ Jogador.create = function (newEmp, result) {
 dbConn.query("INSERT INTO jogadores set ?", newEmp, function (err, res) {
 if(err) {
   console.log("error: ", err);
-  resp.statu(500).end();
+  result(err, null);
 }
 else{
-  resp.status(200);
-  resp.json(result.insertId);
+  console.log(res.insertId);
+  result(null, res.insertId);
 }
 });
 };
