@@ -8,7 +8,7 @@
 
 <div class="row justify-content-md-center">
     <div class="col-8">
-        <table mat-table [dataSource]="dataSource" class="mat-evelation-z8" with="100%">
+        <table mat-table [dataSource]="this.jogadores" class="mat-evelation-z8" with="100%">
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDeff>No.</th>
@@ -19,6 +19,7 @@
                 <th mat-header-cell *matHeaderCellDeff>Nome</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.nome}}</td>
             </ng-container>
+            
         
             <ng-container matColumnDef="sobrenome">
                 <th mat-header-cell *matHeaderCellDeff>Sobrenome</th>
@@ -54,7 +55,7 @@
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let joagdor; columns: displayedColumns"></tr>
+            <tr mat-row *matRowDef="let jogador; columns: displayedColumns"></tr>
         </table>
     </div>
 

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { JogadorService } from '../jogador.service';
+import { Observable } from 'rxjs';
 
 export class Jogador {
   id!: number;
@@ -22,11 +23,17 @@ export class JogadorComponent implements OnInit {
 
   displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status', 'acoes'];
   dataSource = new MatTableDataSource<Jogador>();
+  jogadores: Jogador[] = []
+
 
   constructor(private service: JogadorService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.service.getJogadores().subscribe(jogadores => this.dataSource.data = jogadores);
+    this.service.getJogadores().subscribe(jogadores =>  {
+      this.dataSource.data = jogadores
+      this.jogadores = jogadores
+      console.log(jogadores)
+    });
   } 
 
   openNewDialog(): void {
