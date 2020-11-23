@@ -11,9 +11,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JogadorComponent, MngJogadorDialog } from './jogador/jogador.component';
 import { HttpClientModule} from '@angular/common/http';
 import { JogadorService } from  './jogador.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 
 @NgModule({
   declarations: [
