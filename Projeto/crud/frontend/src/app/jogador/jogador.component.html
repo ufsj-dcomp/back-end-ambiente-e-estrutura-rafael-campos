@@ -11,43 +11,43 @@
         <table mat-table [dataSource]="this.jogadores" class="mat-evelation-z8" with="100%">
 
             <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDeff>No.</th>
+                <th mat-header-cell *matHeaderCellDef>No.</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.id}}</td>
             </ng-container>
         
             <ng-container matColumnDef="nome">
-                <th mat-header-cell *matHeaderCellDeff>Nome</th>
+                <th mat-header-cell *matHeaderCellDef>Nome</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.nome}}</td>
             </ng-container>
             
         
             <ng-container matColumnDef="sobrenome">
-                <th mat-header-cell *matHeaderCellDeff>Sobrenome</th>
+                <th mat-header-cell *matHeaderCellDef>Sobrenome</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.sobrenome}}</td>
             </ng-container>
         
             <ng-container matColumnDef="time">
-                <th mat-header-cell *matHeaderCellDeff>Time</th>
+                <th mat-header-cell *matHeaderCellDef>Time</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.time}}</td>
             </ng-container>
         
             <ng-container matColumnDef="posicao">
-                <th mat-header-cell *matHeaderCellDeff>Posicao</th>
+                <th mat-header-cell *matHeaderCellDef>Posicao</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.posicao}}</td>
             </ng-container>
         
             <ng-container matColumnDef="idade">
-                <th mat-header-cell *matHeaderCellDeff>Idade</th>
+                <th mat-header-cell *matHeaderCellDef>Idade</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.idade}}</td>
             </ng-container>
         
             <ng-container matColumnDef="status">
-                <th mat-header-cell *matHeaderCellDeff>Status</th>
+                <th mat-header-cell *matHeaderCellDef>Status</th>
                 <td mat-cell *matCellDef="let jogador">{{jogador.status}}</td>
             </ng-container>
 
             <ng-container matColumnDef="acoes">
-                <th mat-header-cell *matHeaderCellDeff></th>
+                <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let jogador">
                     <button mat-stroked-button class="float-right" color="primary" (click)="excluir(jogador)">Excluir</button>
                     <!-- <button mat-stroked-button class="float-right" color="primary" (click)="openNewDialog(jogador)">Editar</button>      -->
