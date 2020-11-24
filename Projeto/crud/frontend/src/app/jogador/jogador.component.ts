@@ -21,7 +21,7 @@ export class Jogador {
 })
 export class JogadorComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status', 'acoes'];
+  displayedColumns: string[] = ['id','nome','sobrenome','time','posicao','idade','status','acoes'];
   dataSource = new MatTableDataSource<Jogador>();
   jogadores: Jogador[] = []
 
