@@ -24,9 +24,8 @@ export class JogadorService {
   }
 
   editar(jogador: Jogador): Observable<any>{
-    return this.http.put("http://localhost:3000/jogadores" + jogador.id, jogador );
+    return this.http.put("http://localhost:3000/jogadores/" + jogador.id, jogador );
   }
-
   remover(jogadorId: number): Observable<any>{
     return this.http.delete("http://localhost:3000/jogadores/" + jogadorId );
   }
