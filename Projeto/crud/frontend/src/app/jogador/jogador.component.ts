@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { JogadorService } from '../jogador.service';
+import { Observable } from 'rxjs';
 
 export class Jogador {
   id!: number;
@@ -36,13 +37,15 @@ export class JogadorComponent implements OnInit {
   } 
 
   openNewDialog(): void {
+
+    var jogador = new Jogador()
     const dialogRef = this.dialog.open(MngJogadorDialog, {
       width: '750px',
-      data: new Jogador()      
+      data: jogador
     });  
 
-    dialogRef.afterClosed().subscribe(jogador =>{
-      console.log(jogador);
+    dialogRef.afterClosed().subscribe(data =>{
+      console.log(jogador)
       this.service.adicionar(jogador).subscribe(jogadorId => {
         this.service.getJogador(jogadorId).subscribe(newJogador => {
           this.dataSource.data = this.dataSource.data.concat(newJogador);
@@ -59,7 +62,8 @@ export class JogadorComponent implements OnInit {
       data: jogador
     });
 
-    dialogRef.afterClosed().subscribe(jogador => {
+
+    dialogRef.afterClosed().subscribe(data => {
       this.service.editar(jogador).subscribe(_ => {
         this.dataSource.data = this.dataSource.data.map(oldJogador => {
           if(oldJogador.id == jogador.id) return jogador;

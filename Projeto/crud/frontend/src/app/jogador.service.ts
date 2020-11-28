@@ -20,10 +20,12 @@ export class JogadorService {
   }
 
   adicionar(jogador: Jogador): Observable<any>{
+    console.log(jogador)
     return this.http.post("http://localhost:3000/jogadores", jogador);
   }
 
   editar(jogador: Jogador): Observable<any>{
+    console.log(jogador)
     return this.http.put("http://localhost:3000/jogadores/" + jogador.id, jogador );
   }
   remover(jogadorId: number): Observable<any>{
