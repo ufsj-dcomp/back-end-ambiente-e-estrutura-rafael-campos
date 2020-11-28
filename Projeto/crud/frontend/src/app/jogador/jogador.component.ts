@@ -79,7 +79,7 @@ export class JogadorComponent implements OnInit {
     })
   }  
 } 
-
+ 
 @Component({
   selector: 'dialog-mng-jogador',
   templateUrl: 'dialog-mng-jogador.html'
