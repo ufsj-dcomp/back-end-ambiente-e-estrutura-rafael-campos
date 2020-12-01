@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors');
 
 
+
 // create express app
 const app = express();
 // Setup server port
@@ -17,6 +18,8 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send("Hello World");
 });
+
+
 // Require jogador routes
 const jogadorRoutes = require('./src/routes/jogador.routes')
 // using as middleware
