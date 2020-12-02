@@ -1,6 +1,6 @@
 'use strict';
 var dbConn = require('./../../config/db.config');
-var jwt = require('jsonwebtoken');
+
 //Jogador object create
 var Jogador = function(jogador){
   this.nome           = jogador.nome;
@@ -10,22 +10,6 @@ var Jogador = function(jogador){
   this.idade          = jogador.idade;
   this.status         = jogador.status;  
 };
-
-// app.post('/auth', (req, resp) => {
-  
-//   connection.query("SELECT * FROM usuario WHERE nome = ? and senha = ?", [user.nome , user.senha], (err,result) => {
-
-//     var usuario = result[0];
-
-//     if (result.lenght == 0) {
-//       resp.status(401);
-//       resp.send({token: null, usuario: usuario, success :false});
-//     } else {
-//       let token = jwt.sing({id: usuario.nome} 'crud', {expiresIn: 6000})
-    
-//     }
-//   });
-// }); 
 
 Jogador.create = function (newEmp, result) {
 dbConn.query("INSERT INTO jogadores set ?", newEmp, function (err, res) {
