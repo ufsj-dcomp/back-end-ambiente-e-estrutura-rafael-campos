@@ -1,5 +1,4 @@
 const express = require('express');
-const basicAuth = require ('express-basic-auth')
 const bodyParser = require('body-parser');
 var cors = require('cors');
 
@@ -12,16 +11,12 @@ const port = process.env.PORT || 3000;
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(cors());
 
-app.use (basicAuth ({ 
-  users: {'admin': 'supersecret'} 
-}))
-
 app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 // define a root route
-app.get ('/', (req, res) => { 
-  res.send ('autorizado'); 
+app.get('/', (req, res) => {
+  res.send("Hello World");
 });
 
 
