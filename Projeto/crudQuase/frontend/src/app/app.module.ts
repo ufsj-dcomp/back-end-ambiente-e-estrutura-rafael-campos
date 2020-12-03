@@ -1,0 +1,51 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { JogadorComponent, MngJogadorDialog } from './jogador/jogador.component';
+import { HttpClientModule} from '@angular/common/http';
+import { JogadorService } from  './jogador.service';
+import { FormsModule } from '@angular/forms';
+import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './auth/auth.guard';
+import { Globals } from './globals/globals';
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    JogadorComponent,
+    MngJogadorDialog,
+    AuthComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule
+  ],
+  entryComponents:  [
+    MngJogadorDialog
+  ],
+  providers: [AuthGuard, Globals],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
